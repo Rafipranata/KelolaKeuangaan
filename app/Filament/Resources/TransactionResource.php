@@ -46,9 +46,12 @@ class TransactionResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('category.nama')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\IconColumn::make('category.pengeluaran')
+                ->label('Tipe')
+                ->boolean()->trueIcon('heroicon-o-arrow-up-circle')
+                ->falseIcon('heroicon-o-arrow-down-circle')
+                ->trueColor('danger')
+                ->falseColor('success'),
                 Tables\Columns\TextColumn::make('tanggal')
                     ->date()
                     ->sortable(),

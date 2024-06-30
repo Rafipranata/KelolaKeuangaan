@@ -38,7 +38,12 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('pengeluaran')
-                    ->boolean(),
+                    ->label('Tipe')
+                    ->boolean()
+                    ->trueIcon('heroicon-o-arrow-up-circle')
+                    ->falseIcon('heroicon-o-arrow-down-circle')
+                    ->trueColor('danger')
+                    ->falseColor('success'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
