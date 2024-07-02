@@ -28,8 +28,8 @@ class WidgetIncomeChart extends ChartWidget
 
         $data = Trend::query(Transaction::incomes())
             ->between(
-                start: $startDate,
-                end: $endDate,
+                start: now()->startOfMonth(),
+                end: now()->endOfMonth(),
             )
             ->perDay()
             ->sum('jumlah');
