@@ -29,8 +29,8 @@ class WidgetExpenseChart extends ChartWidget
 
         $data = Trend::query(Transaction::expenses())
             ->between(
-                start: $startDate,
-                end: $endDate,
+                start: now()->startOfMonth(),
+                end: now()->endOfMonth(),
             )
             ->perDay()
             ->sum('jumlah');
